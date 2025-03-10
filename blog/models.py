@@ -2,6 +2,7 @@ from django.utils import timezone
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
+from taggit.managers import TaggableManager
 
 
 class Status(models.TextChoices):
@@ -29,6 +30,9 @@ class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='blog_posts')
     objects = models.Manager()
     published = PublishedManager()
+    tags = TaggableManager()
+
+
 
     class Meta:
         ordering = ('publish',)
