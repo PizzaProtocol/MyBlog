@@ -6,6 +6,7 @@ from .forms import EmailPostForm, CommentForm
 from blog.models import Post, Status
 from django.views.decorators.http import require_POST
 from taggit.models import Tag
+from django.db.models import Count
 
 
 
@@ -55,18 +56,26 @@ def post_detail(request, year, month, day, slug):
     comments = post.comments.filter(active=True)
     form = CommentForm()
 
+    # Логика для схожих постов
+    post_tags_ids = post.tags.values_list('id', flat=True)  # Получаем ID тегов текущего поста
+    similar_posts = Post.published.filter(tags__in=post_tags_ids)\
+                                  .exclude(id=post.id)\
+                                  .annotate(same_tags=Count('tags'))\
+                                  .order_by('-same_tags', '-publish')[:4]  # Ограничиваем количество постов
+
     if request.method == 'POST':
         form = CommentForm(request.POST)
         if form.is_valid():
             comment = form.save(commit=False)
             comment.post = post
             comment.save()
-            form = CommentForm()
+            form = CommentForm()  # Очищаем форму после успешного сохранения
 
     return render(request, 'blog/post/post_detail.html', {
         'post': post,
         'comments': comments,
-        'form': form
+        'form': form,
+        'similar_posts': similar_posts,  # Теперь переменная всегда определена
     })
 
 
