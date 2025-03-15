@@ -22,7 +22,7 @@
             {% endfor %}
         </p>
 
-        <p>{{ post.content|truncatewords:30 }}</p>
+        <p>{{ post.content|markdown | truncatechars_html:30 }}</p>
     {% endfor %}
     <p class="tag">
     </p>
