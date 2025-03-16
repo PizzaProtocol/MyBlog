@@ -1,0 +1,28 @@
+body {
+    background-color: #f9f9f9;
+    color: #333333;
+    font-family: sans-serif;
+}
+
+h1, h2, h3 {
+    color: #111111;
+}
+
+a{
+    color: #007bff;
+    text-decoration:none;
+    cursor:pointer;
+}
+
+.accent {
+    color: #d78c45;
+}
+
+.sidebar{
+    background-color: #d78c45;
+    text-align: center;
+}
+.sidebar__title{
+    font-family: sans-serif;
+    color: papayawhip;
+}
