@@ -2,6 +2,10 @@
 
 <div class="sidebar">
     <h2 class="sidebar__title">MyBlog</h2>
+    <p>
+        Подписка на новостную ленту
+        <a href="{% url "blog:post_feed" %}">Подписаться</a>
+    </p>
     <p>Всего постов: {% total_posts %}</p>
     <h4>Последние посты</h4>
     {% show_latest_posts 3 %}

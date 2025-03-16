@@ -49,3 +49,5 @@ migrations/
 dist/
 build/
 *.egg-info/
+
+mysite_data.json
