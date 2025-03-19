@@ -7,7 +7,8 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <h1>{{ post.title }}</h1>
+            {% include 'header.html' %}
+                <h1 class="accent">{{ post.title }}</h1>
                 <p class="date">
                     Опубликовано: {{ post.publish }} by {{ post.author }}
                 </p>
@@ -19,10 +20,10 @@
                 <h2>Аналогичные посты по тегам</h2>
                 {% for post in similar_posts %}
                     <p>
-                        <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+                        <a class="title-post" href="{{ post.get_absolute_url }}">{{ post.title }}</a>
                     </p>
                 {% empty %}
-                   <p>Постов на подобные темы пока нет</p>
+                    <p>Постов на подобные темы пока нет</p>
                 {% endfor %}
 
                 {% with comments.count as total_comments %}
@@ -30,11 +31,24 @@
                 {% endwith %}
 
 
-                <!-- Форма для комментариев -->
-                <form method="post">
+                <form method="post" class="mt-4">
                     {% csrf_token %}
-                    {{ form.as_p }}
-                    <button type="submit" class="btn btn-primary">Коментировать</button>
+                    <div class="mb-3">
+                        <label for="{{ form.name.id_for_label }}" class="form-label">Имя</label>
+                        {{ form.name|add_class:"form-control" }}
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="{{ form.email.id_for_label }}" class="form-label">Email</label>
+                        {{ form.email|add_class:"form-control" }}
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="{{ form.content.id_for_label }}" class="form-label">Комментарий</label>
+                        {{ form.content|add_class:"form-control" }}
+                    </div>
+
+                    <button type="submit" class="btn btn-outline-secondary">Комментировать</button>
                 </form>
 
                 <!-- Список комментариев -->
