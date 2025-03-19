@@ -21,3 +21,11 @@ Markdown==3.7
 pillow==11.1.0
 psycopg2-binary==2.9.10
 sqlparse==0.5.3
+asgiref==3.8.1
+Django==5.1.7
+django-taggit==6.1.0
+django-widget-tweaks==1.5.0
+Markdown==3.7
+pillow==11.1.0
+psycopg2-binary==2.9.10
+sqlparse==0.5.3

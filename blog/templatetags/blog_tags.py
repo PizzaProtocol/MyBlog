@@ -29,3 +29,7 @@ def markdown_format(text):
     return mark_safe(markdown.markdown(text,  extensions=['extra', 'nl2br', 'sane_lists']))
 
 
+
+@register.filter(name='add_class')
+def add_class(field, css_class):
+    return field.as_widget(attrs={"class": css_class})

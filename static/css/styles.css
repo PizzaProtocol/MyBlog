@@ -3,26 +3,86 @@ body {
     color: #333333;
     font-family: sans-serif;
 }
+ul{
+    list-style:  none;
+}
+li{
+    list-style: none;
+}
+
 
 h1, h2, h3 {
     color: #111111;
 }
 
-a{
-    color: #007bff;
-    text-decoration:none;
-    cursor:pointer;
+a {
+    color: #111111;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.title-post {
+    color: #111111;
+}
+.title-post:hover{
+     color: #d78c45;
+    transition: color 0.6s linear;
 }
 
 .accent {
     color: #d78c45;
 }
 
-.sidebar{
-    background-color: #d78c45;
+.accent:hover {
+    color: #111111;
+    transition: color 0.6s linear;
+}
+
+
+.sidebar {
+    background-color: #e6b17e;
     text-align: center;
 }
-.sidebar__title{
+
+.sidebar__title {
     font-family: sans-serif;
-    color: papayawhip;
+    color: #000000;
 }
+
+.sidebar_link{
+    color: #333333;
+    font-size: 26px;
+}
+.sidebar_link:hover{
+    color: #f4f4f4;
+    transition: color 0.6s linear;
+
+}
+
+.sidebar_last_post{
+    color: #333333;
+}
+
+.sidebar_last_post:hover{
+    color: #f4f4f4;
+    transition: color 0.6s linear;
+}
+
+
+/* Стили для пагинации */
+.pagination .page-link {
+    color: black; /* Цвет текста */
+    border-color: black; /* Цвет границы */
+}
+
+.pagination .page-item.active .page-link {
+    background-color: black; /* Цвет фона активной страницы */
+    border-color: black; /* Цвет границы активной страницы */
+    color: white; /* Цвет текста активной страницы */
+}
+
+.pagination .page-item.disabled .page-link {
+    color: gray; /* Цвет текста неактивных ссылок */
+    border-color: gray; /* Цвет границы неактивных ссылок */
+}
+

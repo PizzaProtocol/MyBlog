@@ -2,9 +2,10 @@
 
 <div class="sidebar">
     <h2 class="sidebar__title">MyBlog</h2>
+    <a class="sidebar_link" href="{% url 'blog:post_search' %}">Найти пост</a>
     <p>
         Подписка на новостную ленту
-        <a href="{% url "blog:post_feed" %}">Подписаться</a>
+        <a class="sidebar_link" href="{% url "blog:post_feed" %}">Подписаться</a>
     </p>
     <p>Всего постов: {% total_posts %}</p>
     <h4>Последние посты</h4>
@@ -14,7 +15,7 @@
     <ul>
         {% for post in most_commented_posts %}
             <li>
-                <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+                <a class="sidebar_last_post" href="{{ post.get_absolute_url }}">{{ post.title }}</a>
             </li>
         {% endfor %}
     </ul>
